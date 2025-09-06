@@ -1,0 +1,40 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'clouptimizer'
+    environment: 'production'
+
+scrape_configs:
+  - job_name: 'clouptimizer-api'
+    static_configs:
+      - targets: ['clouptimizer:9090']
+        labels:
+          service: 'api'
+          
+  - job_name: 'clouptimizer-health'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['clouptimizer:8000']
+        labels:
+          service: 'health'
+          
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+        labels:
+          service: 'cache'
+          
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+        labels:
+          service: 'database'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+rule_files:
+  - '/etc/prometheus/alerts/*.yml'
