@@ -1,0 +1,9 @@
+# Azure dependencies
+azure-mgmt-compute>=30.0.0
+azure-mgmt-storage>=21.0.0
+azure-mgmt-network>=23.0.0
+azure-mgmt-sql>=4.0.0
+azure-mgmt-web>=7.0.0
+azure-mgmt-monitor>=6.0.0
+azure-mgmt-costmanagement>=4.0.0
+azure-identity>=1.14.0

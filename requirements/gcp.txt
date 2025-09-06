@@ -1,0 +1,7 @@
+# GCP dependencies
+google-cloud-compute>=1.14.0
+google-cloud-storage>=2.10.0
+google-cloud-billing>=1.11.0
+google-cloud-monitoring>=2.15.0
+google-cloud-resource-manager>=1.10.0
+google-auth>=2.22.0

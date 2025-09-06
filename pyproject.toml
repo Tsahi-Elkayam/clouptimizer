@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clouptimizer"
+version = "0.1.0"
+description = "Multi-cloud cost optimization tool with rule engine"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["cloud", "cost-optimization", "aws", "azure", "gcp", "finops"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/Tsahi-Elkayam/clouptimizer"
+Issues = "https://github.com/Tsahi-Elkayam/clouptimizer/issues"
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_any_unimported = false
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+addopts = "-v --cov=src --cov-report=html --cov-report=term"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "C90", "I", "N", "UP", "B", "A", "C4", "ISC", "ICN", "PIE", "PT", "RET", "SIM", "TID", "ERA", "PL"]
+ignore = ["E501"]
+target-version = "py38"
